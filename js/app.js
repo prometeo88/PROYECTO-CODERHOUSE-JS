@@ -16,13 +16,13 @@ const tasaMotoC = 0.002
 
 
 
-//funcion para cotizar
+//función para cotizar
 
 function cotizarSeguro() {
     let autooMoto = prompt("¿Quiere cotizar un auto o una moto? Auto/Moto");
     let autooMotoLower = autooMoto.toLowerCase();
     if (autooMotoLower == "auto") {
-        let tercerosAuto = prompt("Para cotizar Responsabilidad Civil, ingrese A.\nPara cotizar RC + Incendio, Robo/Hurto Total, ingrese B.\nPara Para cotizar RC + Incendio, Robo/Hurto Total + Destruccion Total, ingrese C.\nPara Para cotizar RC + Incendio, Robo/Hurto Total + Destruccion Total + Granizo y Adicionales, ingrese CFULL.");
+        let tercerosAuto = prompt("Para cotizar Responsabilidad Civil, ingrese A.\nPara cotizar RC + Incendio, Robo/Hurto Total, ingrese B.\nPara Para cotizar RC + Incendio, Robo/Hurto Total + Destrucción Total, ingrese C.\nPara Para cotizar RC + Incendio, Robo/Hurto Total + Destruccion Total + Granizo y Adicionales, ingrese CFULL.");
         let tercerosAutoLower = tercerosAuto.toLowerCase();
         if (tercerosAutoLower == "a") {
             console.log("La responsabilidad Civil de un automóvil tiene un costo actual de $" + respCivil[0])
@@ -54,7 +54,7 @@ function cotizarSeguro() {
 
     }
     else if (autooMotoLower == "moto") {
-        let tercerosMoto = prompt("Para cotizar Responsabilidad Civil, ingrese A.\nPara cotizar RC + Incendio, Robo/Hurto Total, ingrese B.\nPara Para cotizar RC + Incendio, Robo/Hurto Total + Destruccion Total, ingrese C.");
+        let tercerosMoto = prompt("Para cotizar Responsabilidad Civil, ingrese A.\nPara cotizar RC + Incendio, Robo/Hurto Total, ingrese B.\nPara Para cotizar RC + Incendio, Robo/Hurto Total + Destrucción Total, ingrese C.");
         let tercerosMotoLower = tercerosMoto.toLowerCase();
         if (tercerosMotoLower == "a") {
             console.log("La responsabilidad Civil de una moto tiene un costo actual de $" + respCivil[1])
@@ -80,8 +80,8 @@ function cotizarSeguro() {
 
     }
     else {
-        console.log("Lo siento, no puedo entender su respuesta. Por favor, responda con auto o moto, sino comuniquese a nuestro whatsapp.");
-        document.write("<br>", "Lo siento, no puedo entender su respuesta. Por favor, responda con auto o moto, sino comuniquese a nuestro whatsapp.")
+        console.log("Lo siento, no puedo entender su respuesta. Por favor, responda con auto o moto, sino comuníquese a nuestro Whatsapp.");
+        document.write("<br>", "Lo siento, no puedo entender su respuesta. Por favor, responda con auto o moto, sino comuníquese a nuestro Whatsapp.")
     }
 
 }
