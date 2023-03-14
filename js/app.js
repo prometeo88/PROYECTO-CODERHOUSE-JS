@@ -32,6 +32,7 @@ function cotizarSeguro(){
 
 }
 
+
 //preguntas al usuario que tienen seguro
 
 let tieneSeguro
