@@ -19,6 +19,8 @@ const tasaMotoC = 0.002
 
 //función para cotizar
 
+
+
 function cotizarSeguro() {
     let autooMoto = prompt("¿Quiere cotizar un auto o una moto? Auto/Moto");
     let autooMotoLower = autooMoto.toLowerCase();
@@ -34,18 +36,27 @@ function cotizarSeguro() {
         }
         else if (tercerosAutoLower == "b") {
             let sumaAsegurada = prompt("Ingrese el valor actual de mercado de su vehiculo")
+            while (sumaAsegurada == null || /\D/.test(sumaAsegurada) || sumaAsegurada == "") {
+                sumaAsegurada = prompt("Entre un número VÁLIDO: ");
+            }
             let costoAutoB = (respCivil[0].costo) + (sumaAsegurada * tasaAutoB)
             console.log("El costo de una cobertura B de un auto con una Suma Asegurada de $" + sumaAsegurada + " es de $" + costoAutoB.toFixed(2) + " mensual.")
             document.write("<br>", "El costo de una cobertura B de un auto con una Suma Asegurada de $" + sumaAsegurada + " es de $" + costoAutoB.toFixed(2) + " mensual.")
         }
         else if (tercerosAutoLower == "c") {
             let sumaAsegurada = prompt("Ingrese el valor actual de mercado de su vehiculo")
+            while (sumaAsegurada == null || /\D/.test(sumaAsegurada) || sumaAsegurada == "") {
+                sumaAsegurada = prompt("Entre un número VÁLIDO: ");
+            }
             let costoAutoC = (respCivil[0].costo) + (sumaAsegurada * tasaAutoC)
             console.log("El costo de una cobertura C de un auto con una Suma Asegurada de $" + sumaAsegurada + " es de $" + costoAutoC.toFixed(2) + " mensual.")
             document.write("<br>", "El costo de una cobertura C de un auto con una Suma Asegurada de $" + sumaAsegurada + " es de $" + costoAutoC.toFixed(2) + " mensual.")
         }
         else if (tercerosAutoLower == "cfull") {
             let sumaAsegurada = prompt("Ingrese el valor actual de mercado de su vehiculo")
+            while (sumaAsegurada == null || /\D/.test(sumaAsegurada) || sumaAsegurada == "") {
+                sumaAsegurada = prompt("Entre un número VÁLIDO: ");
+            }
             let costoAutoCFULL = (respCivil[0].costo) + (sumaAsegurada * tasaAutoCFULL)
             console.log("El costo de una cobertura CFull de un auto con una Suma Asegurada de $" + sumaAsegurada + " es de $" + costoAutoCFULL.toFixed(2) + " mensual.")
             document.write("<br>", "El costo de una cobertura CFull de un auto con una Suma Asegurada de $" + sumaAsegurada + " es de $" + costoAutoCFULL.toFixed(2) + " mensual.")
@@ -69,12 +80,18 @@ function cotizarSeguro() {
         }
         else if (tercerosMotoLower == "b") {
             let sumaAsegurada = prompt("Ingrese el valor actual de mercado de su vehiculo")
+            while (sumaAsegurada == null || /\D/.test(sumaAsegurada) || sumaAsegurada == "") {
+                sumaAsegurada = prompt("Entre un número VÁLIDO: ");
+            }
             let costoMotoB = (respCivil[1].costo) + (sumaAsegurada * tasaMotoB)
             console.log("El costo de una cobertura B para una moto con una Suma Asegurada de $" + sumaAsegurada + " es de $" + costoMotoB.toFixed(2) + " mensual.")
             document.write("<br>", "El costo de una cobertura B para una moto con una Suma Asegurada de $" + sumaAsegurada + " es de $" + costoMotoB.toFixed(2) + " mensual.")
         }
         else if (tercerosMotoLower == "c") {
             let sumaAsegurada = prompt("Ingrese el valor actual de mercado de su vehiculo")
+            while (sumaAsegurada == null || /\D/.test(sumaAsegurada) || sumaAsegurada == "") {
+                sumaAsegurada = prompt("Entre un número VÁLIDO: ");
+            }
             let costoMotoC = (respCivil[1].costo) + (sumaAsegurada * tasaMotoC)
             console.log("El costo de una cobertura C para una moto con una Suma Asegurada de $" + sumaAsegurada + " es de $" + costoMotoC.toFixed(2) + " mensual.")
             document.write("<br>", "El costo de una cobertura C para una moto con una Suma Asegurada de $" + sumaAsegurada + " es de $" + costoMotoC.toFixed(2) + " mensual.")
@@ -117,7 +134,7 @@ if (tieneSeguroLower == "si") {
     }
 }
 
-//preguntas al usuario cuando no tiene seguro
+//preguntas al usuario cuando no tiene seguro (error cuando el usuario pone cancelar..algo con lowercase)
 
 else if (tieneSeguroLower == "no") {
     quiereComparar = prompt("¿Desea cotizar su vehículo? si/no").toLowerCase();
