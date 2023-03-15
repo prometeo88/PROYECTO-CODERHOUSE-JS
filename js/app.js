@@ -8,8 +8,8 @@ const respCivil = [
     { tipo: "auto", costo: 1900 },
     { tipo: "moto", costo: 350 }]
 const tasaAutoA = 0
-const tasaAutoB = 0.004
-const tasaAutoC = 0.007
+const tasaAutoB = 0.0004
+const tasaAutoC = 0.0007
 const tasaAutoCFULL = 0.002
 const tasaMotoA = 0
 const tasaMotoB = 0.001
