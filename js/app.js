@@ -42,7 +42,7 @@ botonCotizar.addEventListener("click", () => {
     }
     console.log(cotizacionPrint)
 
-    alertify.alert(`La cotizacion para ${document.getElementById("vehiculosMarca").value} ${document.getElementById("vehiculosmodelos").value} del año ${document.getElementById("vehiculosFabricacion").value} es de $${cotizacionPrint}`)
+    alertify.alert(`La cotizacion para ${document.getElementById("vehiculosMarca").value} ${document.getElementById("vehiculosmodelos").value} del año ${document.getElementById("vehiculosFabricacion").value} es de $${cotizacionPrint}`).set({ title: "Resultado Cotizacion" })
 
 
     resultadoCotizacion.textContent = `La cotizacion para ${document.getElementById("vehiculosMarca").value} ${document.getElementById("vehiculosmodelos").value} del año ${document.getElementById("vehiculosFabricacion").value} es de $${cotizacionPrint}`
