@@ -18,6 +18,8 @@ const botonBorrar = document.getElementById("reset")
 const inputNombre = document.getElementById('nombre');
 const inputEdad = document.getElementById('edad');
 const selectCobertura = document.getElementById("cobertura")
+const botonGuardar = document.getElementById("save")
+const historialCotizacion = document.getElementById("historialCotizacion")
 
 botonCotizar.addEventListener("click", () => {
     // verificar campos completos
@@ -69,5 +71,15 @@ botonBorrar.addEventListener("click", () => {
     selectFabricacion.selectedIndex = 0;
     selectCobertura.selectedIndex = 0;
 
+}
+
+)
+
+botonGuardar.addEventListener("click",() => {
+
+    localStorage.setItem("nombreCotizacion", inputNombre)
+
+    historialCotizacion.textContent = localStorage.getItem("nombreCotizacion")
 
 })
+

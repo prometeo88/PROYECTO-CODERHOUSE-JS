@@ -23,7 +23,7 @@ inputEdad.addEventListener('blur', () => {
     const edad = parseInt(inputEdad.value);
 
     if (isNaN(edad)) {
-        alertify.alert('Por favor, ingresa un número válido').set({ title: "Error de Edad" });
+        alertify.alert('Por favor, ingresa una edad entre 18 y 85 años').set({ title: "Error de Edad" });
         inputEdad.value = '';
     } else if (edad < 18 || edad > 85) {
         alertify.alert('Por favor, ingresa una edad entre 18 y 85 años').set({ title: "Error de Edad" });
