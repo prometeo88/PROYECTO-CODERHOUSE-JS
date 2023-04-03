@@ -20,6 +20,21 @@ const inputEdad = document.getElementById('edad');
 const selectCobertura = document.getElementById("cobertura")
 
 botonCotizar.addEventListener("click", () => {
+    // verificar campos completos
+    if (!inputNombre.value || !inputEdad.value) {
+        alertify.alert("Por favor, ingrese su nombre y edad antes de cotizar.").set({ title: "Error" });
+        return;
+    }
+
+     if (document.getElementById("vehiculosMarca").value &&
+        document.getElementById("vehiculosmodelos").value &&
+        document.getElementById("vehiculosFabricacion").value &&
+        selectCobertura.value === "Abrir y seleccionar") {
+        alertify.alert("Por favor, seleccione un vehículo y cobertura antes de cotizar.");
+        return;
+    } 
+
+
     const precio = vehiculoPrecio.find((vehiculo) =>
         vehiculo.marca === document.getElementById("vehiculosMarca").value &&
         vehiculo.modelo === document.getElementById("vehiculosmodelos").value &&
@@ -37,7 +52,6 @@ botonCotizar.addEventListener("click", () => {
     else if (selectCobertura.value === "TR") {
         cotizacionPrint = (tasaTR * precio.precio * 1000) + tasaRC
     }
-    console.log(cotizacionPrint)
 
     alertify.alert(`La cotizacion para ${document.getElementById("vehiculosMarca").value} ${document.getElementById("vehiculosmodelos").value} del año ${document.getElementById("vehiculosFabricacion").value} es de $${cotizacionPrint}`).set({ title: "Resultado Cotizacion" })
 
