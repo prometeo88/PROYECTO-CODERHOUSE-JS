@@ -15,6 +15,9 @@ const tasaTR = 0.0023
 const botonCotizar = document.getElementById("cotizar");
 const resultadoCotizacion = document.getElementById("resultadoCotizacion")
 const botonBorrar = document.getElementById("reset")
+const inputNombre = document.getElementById('nombre');
+const inputEdad = document.getElementById('edad');
+const selectCobertura = document.getElementById("cobertura")
 
 botonCotizar.addEventListener("click", () => {
     const precio = vehiculoPrecio.find((vehiculo) =>
@@ -23,21 +26,15 @@ botonCotizar.addEventListener("click", () => {
         vehiculo.anio === document.getElementById("vehiculosFabricacion").value
     );
 
-    console.log(precio.precio * 1000);
-
-    const selectCobertura = document.getElementById("cobertura").value
-
-    console.log(selectCobertura)
-
     let cotizacionPrint
 
-    if (selectCobertura === "RC") {
+    if (selectCobertura.value === "RC") {
         cotizacionPrint = tasaRC
     }
-    else if (selectCobertura === "TCG") {
+    else if (selectCobertura.value === "TCG") {
         cotizacionPrint = (tasaTC * precio.precio * 1000) + tasaRC
     }
-    else if (selectCobertura === "TR") {
+    else if (selectCobertura.value === "TR") {
         cotizacionPrint = (tasaTR * precio.precio * 1000) + tasaRC
     }
     console.log(cotizacionPrint)
@@ -48,12 +45,15 @@ botonCotizar.addEventListener("click", () => {
     resultadoCotizacion.textContent = `La cotizacion para ${document.getElementById("vehiculosMarca").value} ${document.getElementById("vehiculosmodelos").value} del año ${document.getElementById("vehiculosFabricacion").value} es de $${cotizacionPrint}`
 });
 
+
 botonBorrar.addEventListener("click", () => {
 
-    nombre.innerHTML = "";
-    selectMarca.innerHTML = "";
+    inputNombre.value = "";
+    inputEdad.value = "";
+    selectMarca.selectedIndex = 0;
     selectModelo.innerHTML = "";
-    selectFabricacion.innerHTML = "";
+    selectFabricacion.selectedIndex = 0;
+    selectCobertura.selectedIndex = 0;
 
 
 })
