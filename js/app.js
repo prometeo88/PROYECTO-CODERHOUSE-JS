@@ -59,7 +59,7 @@ botonCotizar.addEventListener("click", () => {
     alertify.alert(`La cotizacion para ${document.getElementById("vehiculosMarca").value} ${document.getElementById("vehiculosmodelos").value} del año ${document.getElementById("vehiculosFabricacion").value} es de $${cotizacionPrint}`).set({ title: "Resultado Cotizacion" })
 
 
-    resultadoCotizacion.textContent = `La cotizacion para el auto ${document.getElementById("vehiculosMarca").value} ${document.getElementById("vehiculosmodelos").value} del año ${document.getElementById("vehiculosFabricacion").value} es de $${cotizacionPrint}<br>`
+    resultadoCotizacion.innerHTML = `La cotizacion para el auto ${document.getElementById("vehiculosMarca").value} ${document.getElementById("vehiculosmodelos").value} del año ${document.getElementById("vehiculosFabricacion").value} es de $${cotizacionPrint}. <br.`;
 });
 
 
@@ -87,7 +87,7 @@ botonGuardar.addEventListener("click", () => {
   
     historialCotizacion.innerHTML = "";
     cotizaciones.forEach((cotizacion, index) => {
-      historialCotizacion.innerHTML += `${index + 1}. ${cotizacion.nombre}: ${cotizacion.cotizacion}<br>`;
+      historialCotizacion.innerHTML += `${index + 1}- ${cotizacion.nombre} : ${cotizacion.cotizacion}<br>`;
     });
   });
 

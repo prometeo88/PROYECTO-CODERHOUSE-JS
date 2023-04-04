@@ -1,8 +1,17 @@
-yzs 
-body {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+    list-style: none;
+    text-decoration: none;
+  }
+
+main {
     background-color: rgb(207, 207, 200);
     color: rgb(0, 0, 0);
     margin: 0px;
+    padding: 0px 5px 0px 5px;
 }
 body h1{
     margin: 15px;
@@ -37,3 +46,41 @@ header img {
 nav, nav img {
     max-height: 35px;
 }
+
+.btn{
+    padding: 5px;
+    margin: 10px;
+}
+
+footer div {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  footer div div h3 {
+    font-size: 20px;
+    color: #606767;
+    margin: 10px;
+  }
+  footer div h4 {
+    font-size: 15px;
+  }
+  footer .footer__whatsappicon {
+    width: 20px;
+    margin: 5px 5px;
+  }
+  footer .footer__whatsapqr {
+    width: 150px;
+  }
+  footer .footer__locationico {
+    width: 20px;
+  }
+  
+  .c-bg-pills {
+    background-color: #e6745a !important;
+    border-radius: 8px;
+    color: #606767 !important;
+  }
+  
+  .c-pills {
+    color: #606767 !important;
+  }
