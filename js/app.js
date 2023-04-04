@@ -20,7 +20,7 @@ const inputEdad = document.getElementById('edad');
 const selectCobertura = document.getElementById("cobertura")
 const botonGuardar = document.getElementById("save")
 const historialCotizacion = document.getElementById("historialCotizacion")
-const botonBorrarHistorial =  document.getElementById("deletHistorial")
+const botonBorrarHistorial = document.getElementById("deletHistorial")
 
 botonCotizar.addEventListener("click", () => {
     // verificar campos completos
@@ -62,6 +62,7 @@ botonCotizar.addEventListener("click", () => {
     resultadoCotizacion.innerHTML = `La cotizacion para el auto ${document.getElementById("vehiculosMarca").value} ${document.getElementById("vehiculosmodelos").value} del año ${document.getElementById("vehiculosFabricacion").value} es de $${cotizacionPrint}. <br.`;
 });
 
+//borrar los datos del formulario
 
 botonBorrar.addEventListener("click", () => {
 
@@ -76,23 +77,40 @@ botonBorrar.addEventListener("click", () => {
 
 )
 
+// guardad la coti en localstorage
+
 botonGuardar.addEventListener("click", () => {
     const nombre = inputNombre.value;
     const cotizacion = resultadoCotizacion.innerText;
     const nuevaCotizacion = { nombre, cotizacion };
-  
+
     let cotizaciones = JSON.parse(localStorage.getItem("cotizaciones")) || [];
     cotizaciones.push(nuevaCotizacion);
     localStorage.setItem("cotizaciones", JSON.stringify(cotizaciones));
-  
+
     historialCotizacion.innerHTML = "";
     cotizaciones.forEach((cotizacion, index) => {
-      historialCotizacion.innerHTML += `${index + 1}- ${cotizacion.nombre} : ${cotizacion.cotizacion}<br>`;
+        historialCotizacion.innerHTML += `${index + 1}- ${cotizacion.nombre} : ${cotizacion.cotizacion}<br>`;
     });
-  });
+});
 
-  botonBorrarHistorial.addEventListener("click", () => {
+//borrar el historial de cotizacion guardads en localstorage
+
+botonBorrarHistorial.addEventListener("click", () => {
     localStorage.clear()
     historialCotizacion.innerHTML = ""
     resultadoCotizacion.innerHTML = ""
+});
+
+//cargar historial de cotizacion con el reload
+
+document.addEventListener("DOMContentLoaded", () => {
+    const cotizaciones = JSON.parse(localStorage.getItem("cotizaciones")) || [];
+  
+    let historialText = "";
+    for (let i = 0; i < cotizaciones.length; i+= 1) {
+      historialText += `${i + 1}- ${cotizaciones[i].nombre} : ${cotizaciones[i].cotizacion}\n <br>`;
+    }
+  
+    historialCotizacion.innerHTML = historialText;
   });
