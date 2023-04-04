@@ -20,6 +20,7 @@ const inputEdad = document.getElementById('edad');
 const selectCobertura = document.getElementById("cobertura")
 const botonGuardar = document.getElementById("save")
 const historialCotizacion = document.getElementById("historialCotizacion")
+const botonBorrarHistorial =  document.getElementById("deletHistorial")
 
 botonCotizar.addEventListener("click", () => {
     // verificar campos completos
@@ -28,13 +29,13 @@ botonCotizar.addEventListener("click", () => {
         return;
     }
 
-     if (document.getElementById("vehiculosMarca").value &&
+    if (document.getElementById("vehiculosMarca").value &&
         document.getElementById("vehiculosmodelos").value &&
         document.getElementById("vehiculosFabricacion").value &&
         selectCobertura.value === "Abrir y seleccionar") {
         alertify.alert("Por favor, seleccione un vehículo y cobertura antes de cotizar.");
         return;
-    } 
+    }
 
 
     const precio = vehiculoPrecio.find((vehiculo) =>
@@ -58,7 +59,7 @@ botonCotizar.addEventListener("click", () => {
     alertify.alert(`La cotizacion para ${document.getElementById("vehiculosMarca").value} ${document.getElementById("vehiculosmodelos").value} del año ${document.getElementById("vehiculosFabricacion").value} es de $${cotizacionPrint}`).set({ title: "Resultado Cotizacion" })
 
 
-    resultadoCotizacion.textContent = `La cotizacion para ${document.getElementById("vehiculosMarca").value} ${document.getElementById("vehiculosmodelos").value} del año ${document.getElementById("vehiculosFabricacion").value} es de $${cotizacionPrint}`
+    resultadoCotizacion.textContent = `La cotizacion para el auto ${document.getElementById("vehiculosMarca").value} ${document.getElementById("vehiculosmodelos").value} del año ${document.getElementById("vehiculosFabricacion").value} es de $${cotizacionPrint}<br>`
 });
 
 
@@ -75,11 +76,23 @@ botonBorrar.addEventListener("click", () => {
 
 )
 
-botonGuardar.addEventListener("click",() => {
+botonGuardar.addEventListener("click", () => {
+    const nombre = inputNombre.value;
+    const cotizacion = resultadoCotizacion.innerText;
+    const nuevaCotizacion = { nombre, cotizacion };
+  
+    let cotizaciones = JSON.parse(localStorage.getItem("cotizaciones")) || [];
+    cotizaciones.push(nuevaCotizacion);
+    localStorage.setItem("cotizaciones", JSON.stringify(cotizaciones));
+  
+    historialCotizacion.innerHTML = "";
+    cotizaciones.forEach((cotizacion, index) => {
+      historialCotizacion.innerHTML += `${index + 1}. ${cotizacion.nombre}: ${cotizacion.cotizacion}<br>`;
+    });
+  });
 
-    localStorage.setItem("nombreCotizacion", inputNombre)
-
-    historialCotizacion.textContent = localStorage.getItem("nombreCotizacion")
-
-})
-
+  botonBorrarHistorial.addEventListener("click", () => {
+    localStorage.clear()
+    historialCotizacion.innerHTML = ""
+    resultadoCotizacion.innerHTML = ""
+  });
