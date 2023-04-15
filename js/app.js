@@ -92,6 +92,21 @@ botonGuardar.addEventListener("click", () => {
     cotizaciones.forEach((cotizacion, index) => {
         historialCotizacion.innerHTML += `${index + 1}- ${cotizacion.nombre} : ${cotizacion.cotizacion}<br>`;
     });
+
+    function efectoSombra() {
+        setTimeout(historialCotizacion.classList.add("sombra1"), 0)
+        setTimeout(() => { historialCotizacion.classList.remove("sombra1") }, 200)
+        setTimeout(() => { historialCotizacion.classList.add("sombra2") }, 200)
+        setTimeout(() => { historialCotizacion.classList.remove("sombra2") }, 200)
+        setTimeout(() => { historialCotizacion.classList.add("sombra3") }, 200)
+        setTimeout(() => { historialCotizacion.classList.remove("sombra3") }, 200)
+    }
+
+    setTimeout(efectoSombra(),0)
+    setTimeout(efectoSombra(),1500)
+
+
+
 });
 
 //borrar el historial de cotizacion guardads en localstorage
@@ -106,11 +121,15 @@ botonBorrarHistorial.addEventListener("click", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const cotizaciones = JSON.parse(localStorage.getItem("cotizaciones")) || [];
-  
+
     let historialText = "";
-    for (let i = 0; i < cotizaciones.length; i+= 1) {
-      historialText += `${i + 1}- ${cotizaciones[i].nombre} : ${cotizaciones[i].cotizacion}\n <br>`;
+    for (let i = 0; i < cotizaciones.length; i += 1) {
+        historialText += `${i + 1}- ${cotizaciones[i].nombre} : ${cotizaciones[i].cotizacion}\n <br>`;
     }
-  
+
     historialCotizacion.innerHTML = historialText;
-  });
+
+
+});
+
+
