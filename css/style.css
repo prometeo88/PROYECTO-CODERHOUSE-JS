@@ -110,3 +110,19 @@ footer .footer__locationico {
   opacity: 0.1;
   font-size: 16.6px;
 }
+
+.card{
+  margin: 0px auto;
+  padding: 10px auto;
+  max-width: 800px;
+}
+
+.card-title{
+margin: 10px;
+
+}
+.card img{
+  max-width: 800px;
+  padding: 10px;
+
+}
